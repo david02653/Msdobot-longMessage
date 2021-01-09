@@ -24,7 +24,7 @@ public class DLMService {
         DMsg.setMessage(msg.getMessage());
 
         // add in database
-        discordRepository.insert(DMsg);
-        return DMsg;
+        return discordRepository.insert(DMsg);
+//        return DMsg;
     }
 }

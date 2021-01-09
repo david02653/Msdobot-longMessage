@@ -17,7 +17,8 @@ public class Controller {
         // get message by id from database
         System.out.println(id);
         DiscordMessage msg = DLMService.getMessage(id);
-        return ResponseEntity.ok(msg.getMessage());
+//        return ResponseEntity.ok(msg.getMessage());
+        return ResponseEntity.ok(msg.getId());
     }
 
     @PostMapping(value = "/add")
