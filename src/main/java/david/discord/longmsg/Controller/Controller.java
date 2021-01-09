@@ -17,16 +17,15 @@ public class Controller {
         // get message by id from database
         System.out.println(id);
         DiscordMessage msg = DLMService.getMessage(id);
-//        return ResponseEntity.ok(msg.getMessage());
-        return ResponseEntity.ok(msg.getId());
+        return ResponseEntity.ok(msg.getMessage());
     }
 
     @PostMapping(value = "/add")
-    public ResponseEntity<DiscordMessage> addMsg(@RequestBody DiscordMessage msg){
+    public ResponseEntity<String> addMsg(@RequestBody DiscordMessage msg){
         // add msg in database
         DiscordMessage DMsg = DLMService.addMsg(msg);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/add").build().toUri();
-        return ResponseEntity.created(location).body(DMsg);
+        return ResponseEntity.created(location).body(DMsg.getId());
     }
 }
